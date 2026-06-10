@@ -1,33 +1,69 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# ====================================================================
+# BACKEND (Spring Boot / Maven / Gradle / Java)
+# ====================================================================
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Arquivos de compilação e empacotamento
+backend/target/
+backend/build/
+backend/.gradle/
+backend/out/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# Arquivos de configuração de IDEs (IntelliJ, Eclipse, VS Code)
+backend/.idea/
+backend/*.iws
+backend/*.iml
+backend/*.ipr
+backend/.settings/
+backend/.classpath
+backend/.project
+backend/.factorypath
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Logs e arquivos temporários do Spring
+backend/*.log
+backend/tmp/
 
-### VS Code ###
-.vscode/
+# Arquivos de propriedades que podem conter senhas/chaves (Opcional, mas seguro)
+backend/src/main/resources/application-local.properties
+backend/src/main/resources/application-prod.properties
+
+
+# ====================================================================
+# FRONTEND (React Vite / Node / JavaScript / TypeScript)
+# ====================================================================
+
+# Dependências (Nunca envie a pasta node_modules!)
+frontend/node_modules/
+frontend/jspm_packages/
+
+# Arquivos de compilação (Produção)
+frontend/dist/
+frontend/tmp/
+frontend/out-tsc/
+
+# Logs do NPM/Yarn
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Variáveis de ambiente (Contém chaves de API secretas)
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Configurações de IDE para o Front
+frontend/.vscode/
+frontend/.idea/
+
+
+# ====================================================================
+# SISTEMA OPERACIONAL E GERAIS
+# ====================================================================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
