@@ -67,3 +67,5 @@ frontend/.idea/
 ._*
 Thumbs.db
 desktop.ini
+.vscode/
+**/.vscode/

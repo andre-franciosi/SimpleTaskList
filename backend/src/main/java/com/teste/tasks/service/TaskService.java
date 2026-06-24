@@ -57,6 +57,9 @@ public class TaskService {
                 if (taskDto.description() != null) {
                     existingTask.setDescription(taskDto.description());
                 }
+                if (taskDto.status() != null) {
+                    existingTask.setStatus(taskDto.status());
+                }
                 
                 return taskRepository.save(existingTask);
             });

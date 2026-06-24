@@ -1,0 +1,50 @@
+<div class="app-shell">
+  <div class="title">
+    <h1>Task List</h1>
+  </div>
+
+  <div class="user-section">
+    <div class="user-panel">
+      <h2>Users</h2>
+      <select [value]="activeUserId ?? ''" (change)="selectUser($event)" [disabled]="loadingUsers || users.length === 0">
+        <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+      </select>
+      <p>{{ loadingUsers ? 'Loading users...' : activeUserId === null ? 'No user selected.' : 'Selected user is loaded from the backend.' }}</p>
+    </div>
+
+    <form class="user-panel user-form" [formGroup]="userForm" (ngSubmit)="submitUser()">
+      <h2>Add user</h2>
+      <input type="text" placeholder="Name" formControlName="name" />
+      <input type="number" placeholder="Age" formControlName="idade" />
+      <button type="submit">Create</button>
+    </form>
+  </div>
+
+  <div class="error-message" *ngIf="error">{{ error }}</div>
+  <div class="loading-message" *ngIf="loadingTasks">Loading tasks...</div>
+
+  <div class="tasks" aria-label="Task board">
+    <div
+      *ngFor="let column of columnConfig"
+      [class.todo]="column.id === 0"
+      [class.in-progress]="column.id === 1"
+      [class.done]="column.id === 2"
+      (dragover)="allowDrop($event)"
+      (drop)="dropTask(column.id)"
+    >
+      <h1>{{ column.label }}</h1>
+      <div>
+        <div
+          class="task"
+          *ngFor="let task of tasksByStatus[column.id]"
+          draggable="true"
+          (dragstart)="startDrag(task.id)"
+          (dragend)="endDrag()"
+        >
+          <h2>{{ task.title }}</h2>
+          <p>{{ task.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
